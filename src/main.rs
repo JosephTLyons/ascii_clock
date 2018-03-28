@@ -144,16 +144,16 @@ fn print_space() {
 }
 
 fn print_colon() {
-    println! ("         ");
-    println! ("         ");
-    println! ("    ;;   ");
-    println! ("    ;;   ");
-    println! ("         ");
-    println! ("         ");
-    println! ("    ;;   ");
-    println! ("    ;;   ");
-    println! ("         ");
-    println! ("         ");
+    println! ("        ");
+    println! ("        ");
+    println! ("   ;;   ");
+    println! ("   ;;   ");
+    println! ("        ");
+    println! ("        ");
+    println! ("   ;;   ");
+    println! ("   ;;   ");
+    println! ("        ");
+    println! ("        ");
 }
 
 fn print_time() {
