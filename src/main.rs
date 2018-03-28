@@ -33,8 +33,8 @@ fn print_two() {
     println! ("     222");
     println! ("22222222");
     println! ("22222222");
-    println! ("222");
-    println! ("222");
+    println! ("222     ");
+    println! ("222     ");
     println! ("22222222");
     println! ("22222222");
 }
@@ -68,8 +68,8 @@ fn print_four() {
 fn print_five() {
     println! ("55555555");
     println! ("55555555");
-    println! ("555");
-    println! ("555");
+    println! ("555     ");
+    println! ("555     ");
     println! ("55555555");
     println! ("55555555");
     println! ("     555");
@@ -81,8 +81,8 @@ fn print_five() {
 fn print_six() {
     println! ("66666666");
     println! ("66666666");
-    println! ("666");
-    println! ("666");
+    println! ("666     ");
+    println! ("666     ");
     println! ("66666666");
     println! ("66666666");
     println! ("666  666");
