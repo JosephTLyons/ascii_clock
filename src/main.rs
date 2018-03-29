@@ -199,9 +199,9 @@ fn print_number (number: i32) {
 }
 
 fn print_time_vertical (hour: i32, min: i32) {
-    let mut tens_digit_hour;
+    let mut tens_digit_hour = 0;
     let mut singles_digit_hour = 0;
-    let mut tens_digit_min;
+    let mut tens_digit_min = 0;
     let mut singles_digit_min = 0;
 
     if hour > 12 {
