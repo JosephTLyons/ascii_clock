@@ -156,27 +156,82 @@ fn print_colon() {
     println! ("        ");
 }
 
-fn print_time() {
-    let time = time::now();
-    let hour = time.tm_hour;
-    let min = time.tm_min;
-
-    if hour > 12 {
-        print! ("{}:{}", hour - 12, min);
+fn print_number (number: i32) {
+    if number == 0 {
+        print_zero();
     }
 
-    print! ("{}:{}", hour, min);
-
-    if hour < 12 {
-        println! (" AM");
+    else if number == 1 {
+        print_one();
     }
 
-    else {
-        print! (" PM");
+    else if number == 2 {
+        print_two();
+    }
+
+    else if number == 3 {
+        print_three();
+    }
+
+    else if number == 4 {
+        print_four();
+    }
+
+    else if number == 5 {
+        print_five();
+    }
+
+    else if number == 6 {
+        print_six();
+    }
+
+    else if number == 7 {
+        print_seven();
+    }
+
+    else if number == 8 {
+        print_eight();
+    }
+
+    else if number == 9 {
+        print_nine();
     }
 }
 
+fn print_time_vertical (hour: i32, min: i32) {
+    let mut tens_digit_hour;
+    let mut singles_digit_hour = 0;
+    let mut tens_digit_min;
+    let mut singles_digit_min = 0;
+
+    if hour > 12 {
+        tens_digit_hour = 0;
+        singles_digit_hour = hour - 12;
+    }
+
+    else {
+        singles_digit_hour = hour;
+    }
+
+    if min > 10 {
+        tens_digit_min = min / 10;
+        singles_digit_min = min % 10;
+    }
+
+    else {
+        tens_digit_min = 0;
+        singles_digit_min = min;
+    }
+
+    print_number (tens_digit_hour);
+    print_number (singles_digit_hour);
+    print_colon();
+    print_number (tens_digit_min);
+    print_number (singles_digit_min);
+}
+
 fn main() {
-    print_time();
-    print_zero();
+    let time = time::now();
+
+    print_time_vertical (time.tm_hour, time.tm_min);
 }
