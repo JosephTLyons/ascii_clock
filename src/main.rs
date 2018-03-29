@@ -156,6 +156,45 @@ fn print_colon() {
     println! ("        ");
 }
 
+fn print_a() {
+    println! ("aaaaaaaa");
+    println! ("aaaaaaaa");
+    println! ("aaa  aaa");
+    println! ("aaa  aaa");
+    println! ("aaa  aaa");
+    println! ("aaaaaaaa");
+    println! ("aaaaaaaa");
+    println! ("aaa  aaa");
+    println! ("aaa  aaa");
+    println! ("aaa  aaa");
+}
+
+fn print_p() {
+    println! ("pppppppp");
+    println! ("pppppppp");
+    println! ("ppp  ppp");
+    println! ("ppp  ppp");
+    println! ("ppp  ppp");
+    println! ("pppppppp");
+    println! ("pppppppp");
+    println! ("ppp     ");
+    println! ("ppp     ");
+    println! ("ppp     ");
+}
+
+fn print_m() {
+    println! ("mmmmmmmm");
+    println! ("mmmmmmmm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+    println! ("mm mm mm");
+}
+
 fn print_number (number: i32) {
     if number == 0 {
         print_zero();
@@ -228,6 +267,16 @@ fn print_time_vertical (hour: i32, min: i32) {
     print_colon();
     print_number (tens_digit_min);
     print_number (singles_digit_min);
+
+    if hour > 12 {
+        print_p();
+    }
+
+    else {
+        print_a();
+    }
+
+    print_m();
 }
 
 fn main() {
