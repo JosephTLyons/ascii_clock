@@ -181,7 +181,7 @@ fn print_time_horizontally (hour: i32, min: i32)
                     "mm mm mm",
                     "mm mm mm"];
 
-    for x in 0..10 {
+    for x in 0..number_zero.len() {
         print! ("{}", number_one[x]);
         print! (" ");
         print! ("{}", number_two[x]);
