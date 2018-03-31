@@ -181,14 +181,25 @@ fn print_time_horizontally (hour: i32, min: i32)
                     "mm mm mm",
                     "mm mm mm"];
 
+    let clock_numbers = [number_zero,
+                         number_one,
+                         number_two,
+                         number_three,
+                         number_four,
+                         number_five,
+                         number_six,
+                         number_seven,
+                         number_eight,
+                         number_nine];
+
     for x in 0..number_zero.len() {
-        print! ("{}", number_one[x]);
+        print! ("{}", clock_numbers[tens_digit_hour][x]);
         print! (" ");
-        print! ("{}", number_two[x]);
+        print! ("{}", clock_numbers[tens_digit_hour][x]);
         print! ("{}", number_colon[x]);
-        print! ("{}", number_three[x]);
+        print! ("{}", clock_numbers[tens_digit_hour][x]);
         print! (" ");
-        print! ("{}", number_four[x]);
+        print! ("{}", clock_numbers[tens_digit_hour][x]);
         print! ("   ");
 
         if hour > 12 {
@@ -200,9 +211,7 @@ fn print_time_horizontally (hour: i32, min: i32)
         }
 
         print! (" ");
-
         print! ("{}", letter_m[x]);
-
         println!();
     }
 }
