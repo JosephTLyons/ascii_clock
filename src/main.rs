@@ -190,6 +190,7 @@ fn print_time_horizontally (hour: i32, min: i32)
         print! (" ");
         print! ("{}", number_four[x]);
         print! ("   ");
+
         if hour > 12 {
             print! ("{}", letter_p[x]);
         }
