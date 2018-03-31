@@ -215,7 +215,5 @@ fn print_time_horizontally (hour: i32, min: i32)
 
 fn main() {
     let time = time::now();
-    print_time_horizontally(1, 2);
-
-    //print_time_vertical (time.tm_hour, time.tm_min);
+    print_time_horizontally (time.tm_hour, time.tm_min);
 }
