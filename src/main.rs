@@ -152,9 +152,9 @@ fn print_time_horizontally (hour: i32, min: i32)
                     "aaaaaaaa",
                     "aaa  aaa",
                     "aaa  aaa",
+                    "aaaaaaaa",
+                    "aaaaaaaa",
                     "aaa  aaa",
-                    "aaaaaaaa",
-                    "aaaaaaaa",
                     "aaa  aaa",
                     "aaa  aaa",
                     "aaa  aaa"];
