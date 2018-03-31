@@ -3,46 +3,29 @@ extern crate time;
 
 fn print_time_horizontally (hour: i32, min: i32)
 {
-    // let mut tens_digit_hour = 0;
-    // let mut singles_digit_hour = 0;
-    // let mut tens_digit_min = 0;
-    // let mut singles_digit_min = 0;
-    //
-    // if hour > 12 {
-    //     tens_digit_hour = 0;
-    //     singles_digit_hour = hour - 12;
-    // }
-    //
-    // else {
-    //     singles_digit_hour = hour;
-    // }
-    //
-    // if min > 10 {
-    //     tens_digit_min = min / 10;
-    //     singles_digit_min = min % 10;
-    // }
-    //
-    // else {
-    //     tens_digit_min = 0;
-    //     singles_digit_min = min;
-    // }
-    //
-    // print_number (tens_digit_hour);
-    // print_number (singles_digit_hour);
-    // print_colon();
-    // print_number (tens_digit_min);
-    // print_number (singles_digit_min);
-    //
-    // if hour > 12 {
-    //     print_p();
-    // }
-    //
-    // else {
-    //     print_a();
-    // }
-    //
-    // print_m();
+    let mut tens_digit_hour = 0;
+    let mut singles_digit_hour = 0;
+    let mut tens_digit_min = 0;
+    let mut singles_digit_min = 0;
 
+    if hour > 12 {
+        tens_digit_hour = 0;
+        singles_digit_hour = hour - 12;
+    }
+
+    else {
+        singles_digit_hour = hour;
+    }
+
+    if min > 10 {
+        tens_digit_min = min / 10;
+        singles_digit_min = min % 10;
+    }
+
+    else {
+        tens_digit_min = 0;
+        singles_digit_min = min;
+    }
 
     let number_zero = ["00000000",
                        "00000000",
@@ -165,7 +148,7 @@ fn print_time_horizontally (hour: i32, min: i32)
                         "        ",
                         "        "];
 
-    let number_a = ["aaaaaaaa",
+    let letter_a = ["aaaaaaaa",
                     "aaaaaaaa",
                     "aaa  aaa",
                     "aaa  aaa",
@@ -176,7 +159,7 @@ fn print_time_horizontally (hour: i32, min: i32)
                     "aaa  aaa",
                     "aaa  aaa"];
 
-    let number_p = ["pppppppp",
+    let letter_p = ["pppppppp",
                     "pppppppp",
                     "ppp  ppp",
                     "ppp  ppp",
@@ -187,7 +170,7 @@ fn print_time_horizontally (hour: i32, min: i32)
                     "ppp     ",
                     "ppp     "];
 
-    let number_m = ["mmmmmmmm",
+    let letter_m = ["mmmmmmmm",
                     "mmmmmmmm",
                     "mm mm mm",
                     "mm mm mm",
@@ -206,9 +189,18 @@ fn print_time_horizontally (hour: i32, min: i32)
         print! (" ");
         print! ("{}", number_four[x]);
         print! ("   ");
-        print! ("{}", number_p[x]);
+        if hour > 12 {
+            print! ("{}", letter_p[x]);
+        }
+
+        else {
+            print! ("{}", letter_a[x]);
+        }
+
         print! (" ");
-        print! ("{}", number_m[x]);
+
+        print! ("{}", letter_m[x]);
+
         println!();
     }
 }
