@@ -7,7 +7,13 @@ fn print_time_horizontally (hour: usize, min: usize)
     let mut tens_digit_min: usize = 0;
     let mut singles_digit_min: usize = 0;
 
-    if hour > 12 {
+    if hour == 0 || hour == 12
+    {
+        tens_digit_hour = 1;
+        singles_digit_hour = 2;
+    }
+
+    else if hour > 12 {
         tens_digit_hour = ((hour - 12) / 10);
         singles_digit_hour = ((hour - 12) % 10);
     }
