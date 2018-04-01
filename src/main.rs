@@ -163,9 +163,9 @@ fn print_time_horizontally (hour: i32, min: i32)
                         "pppppppp",
                         "ppp  ppp",
                         "ppp  ppp",
-                        "ppp  ppp",
                         "pppppppp",
                         "pppppppp",
+                        "ppp     ",
                         "ppp     ",
                         "ppp     ",
                         "ppp     "];
