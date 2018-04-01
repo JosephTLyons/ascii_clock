@@ -179,7 +179,7 @@ fn print_time_horizontally (hour: i32, min: i32)
                         "mm mm mm",
                         "mm mm mm",
                         "mm mm mm",
-                        "mm mm mm"];
+                        "mm mm mm"];    
 
     let clock_numbers = [number_zero,
                          number_one,
