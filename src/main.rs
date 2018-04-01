@@ -4,9 +4,9 @@ extern crate time;
 fn print_time_horizontally (hour: usize, min: usize)
 {
     let mut tens_digit_hour: usize = 0;
-    let mut singles_digit_hour: usize  = 0;
-    let mut tens_digit_min: usize  = 0;
-    let mut singles_digit_min: usize  = 0;
+    let mut singles_digit_hour: usize = 0;
+    let mut tens_digit_min: usize = 0;
+    let mut singles_digit_min: usize = 0;
 
     if hour > 12 {
         tens_digit_hour = ((hour - 12) / 10);
