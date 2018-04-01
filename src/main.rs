@@ -3,28 +3,28 @@ extern crate time;
 
 fn print_time_horizontally (hour: i32, min: i32)
 {
-    let mut tens_digit_hour = 0;
-    let mut singles_digit_hour = 0;
-    let mut tens_digit_min = 0;
-    let mut singles_digit_min = 0;
+    let mut tens_digit_hour = 0 as usize;
+    let mut singles_digit_hour = 0  as usize;
+    let mut tens_digit_min = 0 as usize;
+    let mut singles_digit_min = 0 as usize;
 
     if hour > 12 {
-        tens_digit_hour = 0;
-        singles_digit_hour = hour - 12;
+        tens_digit_hour = ((hour - 12) / 10) as usize;
+        singles_digit_hour = ((hour - 12) % 10) as usize;
     }
 
     else {
-        singles_digit_hour = hour;
+        singles_digit_hour = hour  as usize;
     }
 
     if min > 10 {
-        tens_digit_min = min / 10;
-        singles_digit_min = min % 10;
+        tens_digit_min = (min / 10)  as usize;
+        singles_digit_min = (min % 10)  as usize;
     }
 
     else {
-        tens_digit_min = 0;
-        singles_digit_min = min;
+        tens_digit_min = 0 as usize;
+        singles_digit_min = min as usize;
     }
 
     let number_zero = ["00000000",
@@ -195,11 +195,11 @@ fn print_time_horizontally (hour: i32, min: i32)
     for x in 0..number_zero.len() {
         print! ("{}", clock_numbers[tens_digit_hour][x]);
         print! (" ");
-        print! ("{}", clock_numbers[tens_digit_hour][x]);
+        print! ("{}", clock_numbers[singles_digit_hour][x]);
         print! ("{}", number_colon[x]);
-        print! ("{}", clock_numbers[tens_digit_hour][x]);
+        print! ("{}", clock_numbers[tens_digit_min][x]);
         print! (" ");
-        print! ("{}", clock_numbers[tens_digit_hour][x]);
+        print! ("{}", clock_numbers[singles_digit_min][x]);
         print! ("   ");
 
         if hour > 12 {
