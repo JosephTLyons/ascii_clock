@@ -1,4 +1,4 @@
-# A simple command line application that prints the time to the console using ASCII art characters; written in Rust.
+# A simple command line application, written in Rust, that prints the time to the console using ASCII art.
 
 * The only purpose of this project was to help me learn the basics of Rust.
 
