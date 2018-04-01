@@ -38,16 +38,16 @@ fn print_time_horizontally (hour: i32, min: i32)
                        "00000000",
                        "00000000"];
 
-    let number_one =  ["     111",
-                       "     111",
-                       "     111",
-                       "     111",
-                       "     111",
-                       "     111",
-                       "     111",
-                       "     111",
-                       "     111",
-                       "     111"];
+    let number_one =  ["   111  ",
+                       "  1111  ",
+                       " 11111  ",
+                       "111111  ",
+                       "   111  ",
+                       "   111  ",
+                       "   111  ",
+                       "   111  ",
+                       "11111111",
+                       "11111111"];
 
     let number_two =  ["22222222",
                        "22222222",
@@ -179,7 +179,7 @@ fn print_time_horizontally (hour: i32, min: i32)
                         "mm mm mm",
                         "mm mm mm",
                         "mm mm mm",
-                        "mm mm mm"];    
+                        "mm mm mm"];
 
     let clock_numbers = [number_zero,
                          number_one,
