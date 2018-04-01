@@ -1,30 +1,30 @@
 //use std;
 extern crate time;
 
-fn print_time_horizontally (hour: i32, min: i32)
+fn print_time_horizontally (hour: usize, min: usize)
 {
-    let mut tens_digit_hour = 0 as usize;
-    let mut singles_digit_hour = 0  as usize;
-    let mut tens_digit_min = 0 as usize;
-    let mut singles_digit_min = 0 as usize;
+    let mut tens_digit_hour: usize = 0;
+    let mut singles_digit_hour: usize  = 0;
+    let mut tens_digit_min: usize  = 0;
+    let mut singles_digit_min: usize  = 0;
 
     if hour > 12 {
-        tens_digit_hour = ((hour - 12) / 10) as usize;
-        singles_digit_hour = ((hour - 12) % 10) as usize;
+        tens_digit_hour = ((hour - 12) / 10);
+        singles_digit_hour = ((hour - 12) % 10);
     }
 
     else {
-        singles_digit_hour = hour  as usize;
+        singles_digit_hour = hour;
     }
 
     if min > 10 {
-        tens_digit_min = (min / 10)  as usize;
-        singles_digit_min = (min % 10)  as usize;
+        tens_digit_min = (min / 10);
+        singles_digit_min = (min % 10);
     }
 
     else {
-        tens_digit_min = 0 as usize;
-        singles_digit_min = min as usize;
+        tens_digit_min = 0;
+        singles_digit_min = min;
     }
 
     let number_zero = ["00000000",
@@ -218,5 +218,5 @@ fn print_time_horizontally (hour: i32, min: i32)
 
 fn main() {
     let time = time::now();
-    print_time_horizontally (time.tm_hour, time.tm_min);
+    print_time_horizontally (time.tm_hour as usize, time.tm_min as usize);
 }
