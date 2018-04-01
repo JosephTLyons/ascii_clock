@@ -1,4 +1,3 @@
-//use std;
 extern crate time;
 
 fn print_time_horizontally (hour: usize, min: usize)
