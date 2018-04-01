@@ -16,7 +16,7 @@ fn print_time_horizontally (hour: usize, min: usize)
         singles_digit_hour = hour;
     }
 
-    if min > 10 {
+    if min > 9 {
         tens_digit_min = (min / 10);
         singles_digit_min = (min % 10);
     }
