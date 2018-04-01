@@ -7,4 +7,4 @@
 
 ## Features:
 * Add decorations around the clock
-* Print date below time, formatted nicely, but in normal text and formatted nicely.
+* Print date below time, formatted nicely, but in normal text.
