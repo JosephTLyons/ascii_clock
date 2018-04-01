@@ -191,26 +191,26 @@ fn print_time_horizontally (hour: usize, min: usize)
                          number_eight,
                          number_nine];
 
-    for x in 0..number_zero.len() {
-        print! ("{}", clock_numbers[tens_digit_hour][x]);
+    for string in 0..number_zero.len() {
+        print! ("{}", clock_numbers[tens_digit_hour][string]);
         print! (" ");
-        print! ("{}", clock_numbers[singles_digit_hour][x]);
-        print! ("{}", number_colon[x]);
-        print! ("{}", clock_numbers[tens_digit_min][x]);
+        print! ("{}", clock_numbers[singles_digit_hour][string]);
+        print! ("{}", number_colon[string]);
+        print! ("{}", clock_numbers[tens_digit_min][string]);
         print! (" ");
-        print! ("{}", clock_numbers[singles_digit_min][x]);
+        print! ("{}", clock_numbers[singles_digit_min][string]);
         print! ("   ");
 
         if hour > 12 {
-            print! ("{}", letter_p[x]);
+            print! ("{}", letter_p[string]);
         }
 
         else {
-            print! ("{}", letter_a[x]);
+            print! ("{}", letter_a[string]);
         }
 
         print! (" ");
-        print! ("{}", letter_m[x]);
+        print! ("{}", letter_m[string]);
         println!();
     }
 }
