@@ -24,15 +24,8 @@ fn print_time_horizontally()
         singles_digit_hour = hour;
     }
 
-    if min > 9 {
-        tens_digit_min = (min / 10);
-        singles_digit_min = (min % 10);
-    }
-
-    else {
-        tens_digit_min = 0;
-        singles_digit_min = min;
-    }
+    tens_digit_min = (min / 10);
+    singles_digit_min = (min % 10);
 
     let number_zero = ["00000000",
                        "00000000",
