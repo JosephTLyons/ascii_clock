@@ -4,23 +4,23 @@ fn print_time_horizontally()
 {   let time = time::now();
     let hour: usize = time.tm_hour as usize;
     let min: usize = time.tm_min as usize;
-    let mut tens_digit_hour: usize = 0;
-    let mut singles_digit_hour: usize = 0;
-    let tens_digit_min: usize = (min / 10);
-    let singles_digit_min: usize = (min % 10);
+    let mut hour_tens_digit: usize = 0;
+    let mut hour_singles_digit: usize = 0;
+    let min_tens_digit: usize = (min / 10);
+    let min_singles_digit: usize = (min % 10);
 
     if hour == 0 || hour == 12 {
-        tens_digit_hour = 1;
-        singles_digit_hour = 2;
+        hour_tens_digit = 1;
+        hour_singles_digit = 2;
     }
 
     else if hour > 12 {
-        tens_digit_hour = ((hour - 12) / 10);
-        singles_digit_hour = ((hour - 12) % 10);
+        hour_tens_digit = ((hour - 12) / 10);
+        hour_singles_digit = ((hour - 12) % 10);
     }
 
     else {
-        singles_digit_hour = hour;
+        hour_singles_digit = hour;
     }
 
     let number_zero = ["00000000",
@@ -189,13 +189,13 @@ fn print_time_horizontally()
                          number_nine];
 
     for string in 0..number_zero.len() {
-        print! ("{}", clock_numbers[tens_digit_hour][string]);
+        print! ("{}", clock_numbers[hour_tens_digit][string]);
         print! (" ");
-        print! ("{}", clock_numbers[singles_digit_hour][string]);
+        print! ("{}", clock_numbers[hour_singles_digit][string]);
         print! ("{}", number_colon[string]);
-        print! ("{}", clock_numbers[tens_digit_min][string]);
+        print! ("{}", clock_numbers[min_tens_digit][string]);
         print! (" ");
-        print! ("{}", clock_numbers[singles_digit_min][string]);
+        print! ("{}", clock_numbers[min_singles_digit][string]);
         print! ("   ");
 
         if hour > 12 {
