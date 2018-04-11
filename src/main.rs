@@ -1,7 +1,7 @@
 extern crate time;
 
-fn print_time_horizontally()
-{   let time = time::now();
+fn print_time_horizontally() {   
+    let time = time::now();
     let hour: usize = time.tm_hour as usize;
     let min: usize = time.tm_min as usize;
     let mut hour_tens_digit: usize = 0;
