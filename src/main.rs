@@ -6,8 +6,8 @@ fn print_time_horizontally() {
     let min: usize = time.tm_min as usize;
     let mut hour_tens_digit: usize = 0;
     let mut hour_singles_digit: usize = 0;
-    let min_tens_digit: usize = (min / 10);
-    let min_singles_digit: usize = (min % 10);
+    let min_tens_digit: usize = min / 10;
+    let min_singles_digit: usize = min % 10;
 
     if hour == 0 || hour == 12 {
         hour_tens_digit = 1;
@@ -15,8 +15,8 @@ fn print_time_horizontally() {
     }
 
     else if hour > 12 {
-        hour_tens_digit = ((hour - 12) / 10);
-        hour_singles_digit = ((hour - 12) % 10);
+        hour_tens_digit = (hour - 12) / 10;
+        hour_singles_digit = (hour - 12) % 10;
     }
 
     else {
