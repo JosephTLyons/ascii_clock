@@ -5,7 +5,7 @@ fn print_time_horizontally() {
     let hour: usize = time.tm_hour as usize;
     let min: usize = time.tm_min as usize;
     let mut hour_tens_digit: usize = 0;
-    let mut hour_singles_digit: usize = 0;
+    let hour_singles_digit: usize;
     let min_tens_digit: usize = min / 10;
     let min_singles_digit: usize = min % 10;
 
