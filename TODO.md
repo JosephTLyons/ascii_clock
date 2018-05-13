@@ -4,6 +4,7 @@
 
 ## Miscellaneous:
 * Fix up date formatting to make it more visually pleasing.
+* Add a new screenshot of the newest version when complete
 * Refactor print_time_horizontally() if possible.
 * Maybe create the time object in the main and pass it into both functions to keep from creating it twice?
 
