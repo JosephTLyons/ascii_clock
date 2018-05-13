@@ -149,12 +149,12 @@ fn print_time_horizontally (time: time::Tm) {
 
     let number_colon = ["        ",
                         "        ",
-                        "   ;;   ",
-                        "   ;;   ",
+                        "   ::   ",
+                        "   ::   ",
                         "        ",
                         "        ",
-                        "   ;;   ",
-                        "   ;;   ",
+                        "   ::   ",
+                        "   ::   ",
                         "        ",
                         "        "];
 
