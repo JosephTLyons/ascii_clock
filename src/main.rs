@@ -273,11 +273,11 @@ fn print_am_or_pm (time: time::Tm) {
     let hour: usize = time.tm_hour as usize;
 
     if hour > 12 {
-        print! ("AM *PM |");
+        print! (" AM *PM |");
     }
 
     else {
-        print! ("*AM PM |");
+        print! ("*AM  PM |");
     }
 }
 
@@ -287,7 +287,7 @@ fn main() {
     print_time_horizontally (time);
     print_divider();
     print_date (time);
-    print!("                ");
+    print!("               ");
     print_am_or_pm (time);
     println!();
     print_horizontal_border();
