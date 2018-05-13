@@ -212,6 +212,89 @@ fn print_time_horizontally() {
     }
 }
 
+fn get_day (day_number: i32) -> String {
+    if day_number == 0 {
+        return "Sunday".to_string();
+    }
+
+    else if day_number == 1 {
+        return "Monday".to_string();
+    }
+
+    else if day_number == 2 {
+        return "Tuesday".to_string();
+    }
+
+    else if day_number == 3 {
+        return "Wednesday".to_string();
+    }
+
+    else if day_number == 4 {
+        return "Thursday".to_string();
+    }
+
+    else if day_number == 5 {
+        return "Friday".to_string();
+    }
+
+    return "Saturday".to_string();
+}
+
+fn get_month (day_number: i32) -> String {
+    if day_number == 0 {
+        return "January".to_string();
+    }
+
+    else if day_number == 1 {
+        return "February".to_string();
+    }
+
+    else if day_number == 2 {
+        return "March".to_string();
+    }
+
+    else if day_number == 3 {
+        return "April".to_string();
+    }
+
+    else if day_number == 4 {
+        return "May".to_string();
+    }
+
+    else if day_number == 5 {
+        return "June".to_string();
+    }
+
+    else if day_number == 6 {
+        return "July".to_string();
+    }
+
+    else if day_number == 7 {
+        return "August".to_string();
+    }
+
+    else if day_number == 8 {
+        return "September".to_string();
+    }
+
+    else if day_number == 9 {
+        return "October".to_string();
+    }
+
+    else if day_number == 10 {
+        return "November".to_string();
+    }
+
+    return "December".to_string();
+}
+
+fn print_date() {
+    let time = time::now();
+
+    println! ("{}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
+}
+
 fn main() {
     print_time_horizontally();
+    print_date();
 }
