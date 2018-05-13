@@ -1,5 +1,9 @@
 extern crate time;
 
+fn print_horizontal_border() {
+    println!(" --------------------------------------------");
+}
+
 fn print_time_horizontally (time: time::Tm) {
     let hour: usize = time.tm_hour as usize;
     let min: usize = time.tm_min as usize;
@@ -21,6 +25,17 @@ fn print_time_horizontally (time: time::Tm) {
     else {
         hour_singles_digit = hour;
     }
+
+    let vertical_border = ["|",
+                           "|",
+                           "|",
+                           "|",
+                           "|",
+                           "|",
+                           "|",
+                           "|",
+                           "|",
+                           "|"];
 
     let number_zero = ["00000000",
                        "00000000",
@@ -155,6 +170,8 @@ fn print_time_horizontally (time: time::Tm) {
                          number_nine];
 
     for row in 0..number_zero.len() {
+        print! ("{}", vertical_border[row]);
+        print! (" ");
         print! ("{}", clock_numbers[hour_tens_digit][row]);
         print! (" ");
         print! ("{}", clock_numbers[hour_singles_digit][row]);
@@ -162,9 +179,14 @@ fn print_time_horizontally (time: time::Tm) {
         print! ("{}", clock_numbers[min_tens_digit][row]);
         print! (" ");
         print! ("{}", clock_numbers[min_singles_digit][row]);
-        print! ("   ");
+        print! (" ");
+        print! ("{}", vertical_border[row]);
         println!();
     }
+}
+
+fn print_divider() {
+    println! ("| ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |")
 }
 
 fn get_day (day_number: i32) -> String {
@@ -244,27 +266,29 @@ fn get_month (month_number: i32) -> String {
 }
 
 fn print_date (time: time::Tm) {
-    print! ("{}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
+    print! ("| {}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
 }
 
 fn print_am_or_pm (time: time::Tm) {
     let hour: usize = time.tm_hour as usize;
 
     if hour > 12 {
-        print! ("AM *PM");
+        print! ("AM *PM |");
     }
 
     else {
-        print! ("*AM PM");
+        print! ("*AM PM |");
     }
 }
 
 fn main() {
     let time = time::now();
+    print_horizontal_border();
     print_time_horizontally (time);
-    println!();
+    print_divider();
     print_date (time);
     print!("                ");
     print_am_or_pm (time);
     println!();
+    print_horizontal_border();
 }
