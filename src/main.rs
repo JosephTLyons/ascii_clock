@@ -240,48 +240,48 @@ fn get_day (day_number: i32) -> String {
     return "Saturday".to_string();
 }
 
-fn get_month (day_number: i32) -> String {
-    if day_number == 0 {
+fn get_month (month_number: i32) -> String {
+    if month_number == 0 {
         return "January".to_string();
     }
 
-    else if day_number == 1 {
+    else if month_number == 1 {
         return "February".to_string();
     }
 
-    else if day_number == 2 {
+    else if month_number == 2 {
         return "March".to_string();
     }
 
-    else if day_number == 3 {
+    else if month_number == 3 {
         return "April".to_string();
     }
 
-    else if day_number == 4 {
+    else if month_number == 4 {
         return "May".to_string();
     }
 
-    else if day_number == 5 {
+    else if month_number == 5 {
         return "June".to_string();
     }
 
-    else if day_number == 6 {
+    else if month_number == 6 {
         return "July".to_string();
     }
 
-    else if day_number == 7 {
+    else if month_number == 7 {
         return "August".to_string();
     }
 
-    else if day_number == 8 {
+    else if month_number == 8 {
         return "September".to_string();
     }
 
-    else if day_number == 9 {
+    else if month_number == 9 {
         return "October".to_string();
     }
 
-    else if day_number == 10 {
+    else if month_number == 10 {
         return "November".to_string();
     }
 
