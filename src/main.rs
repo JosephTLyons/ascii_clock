@@ -1,7 +1,6 @@
 extern crate time;
 
-fn print_time_horizontally() {
-    let time = time::now();
+fn print_time_horizontally (time: time::Tm) {
     let hour: usize = time.tm_hour as usize;
     let min: usize = time.tm_min as usize;
     let mut hour_tens_digit: usize = 0;
@@ -144,39 +143,6 @@ fn print_time_horizontally() {
                         "        ",
                         "        "];
 
-    let letter_a =     ["aaaaaaaa",
-                        "aaaaaaaa",
-                        "aaa  aaa",
-                        "aaa  aaa",
-                        "aaaaaaaa",
-                        "aaaaaaaa",
-                        "aaa  aaa",
-                        "aaa  aaa",
-                        "aaa  aaa",
-                        "aaa  aaa"];
-
-    let letter_p =     ["pppppppp",
-                        "pppppppp",
-                        "ppp  ppp",
-                        "ppp  ppp",
-                        "pppppppp",
-                        "pppppppp",
-                        "ppp     ",
-                        "ppp     ",
-                        "ppp     ",
-                        "ppp     "];
-
-    let letter_m =     ["mmmmmmmm",
-                        "mmmmmmmm",
-                        "mm mm mm",
-                        "mm mm mm",
-                        "mm mm mm",
-                        "mm mm mm",
-                        "mm mm mm",
-                        "mm mm mm",
-                        "mm mm mm",
-                        "mm mm mm"];
-
     let clock_numbers = [number_zero,
                          number_one,
                          number_two,
@@ -197,17 +163,6 @@ fn print_time_horizontally() {
         print! (" ");
         print! ("{}", clock_numbers[min_singles_digit][row]);
         print! ("   ");
-
-        if hour > 12 {
-            print! ("{}", letter_p[row]);
-        }
-
-        else {
-            print! ("{}", letter_a[row]);
-        }
-
-        print! (" ");
-        print! ("{}", letter_m[row]);
         println!();
     }
 }
@@ -288,13 +243,28 @@ fn get_month (month_number: i32) -> String {
     return "December".to_string();
 }
 
-fn print_date() {
-    let time = time::now();
+fn print_date (time: time::Tm) {
+    print! ("{}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
+}
 
-    println! ("{}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
+fn print_am_or_pm (time: time::Tm) {
+    let hour: usize = time.tm_hour as usize;
+
+    if hour > 12 {
+        print! ("AM *PM");
+    }
+
+    else {
+        print! ("*AM PM");
+    }
 }
 
 fn main() {
-    print_time_horizontally();
-    print_date();
+    let time = time::now();
+    print_time_horizontally (time);
+    println!();
+    print_date (time);
+    print!("                ");
+    print_am_or_pm (time);
+    println!();
 }
