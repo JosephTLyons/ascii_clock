@@ -255,18 +255,18 @@ fn get_month (month_number: i32) -> String {
 }
 
 fn print_date (time: time::Tm) {
-    print! ("| {}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
+    print! ("{}: {} {}, {}", get_day (time.tm_wday), get_month (time.tm_mon), time.tm_mday, 1900 + time.tm_year);
 }
 
 fn print_am_or_pm (time: time::Tm) {
     let hour: usize = time.tm_hour as usize;
 
     if hour > 12 {
-        print! (" AM *PM |");
+        print! (" AM *PM");
     }
 
     else {
-        print! ("*AM  PM |");
+        print! ("*AM  PM");
     }
 }
 
@@ -275,9 +275,10 @@ fn main() {
     print_horizontal_border();
     print_time_horizontally (time);
     print_divider();
+    print!("| ");
     print_date (time);
     print!("               ");
     print_am_or_pm (time);
-    println!();
+    println!(" |");
     print_horizontal_border();
 }
