@@ -26,17 +26,6 @@ fn print_time_horizontally (time: time::Tm) {
         hour_singles_digit = hour;
     }
 
-    let vertical_border = ["|",
-                           "|",
-                           "|",
-                           "|",
-                           "|",
-                           "|",
-                           "|",
-                           "|",
-                           "|",
-                           "|"];
-
     let number_zero = ["00000000",
                        "00000000",
                        "000  000",
@@ -170,7 +159,7 @@ fn print_time_horizontally (time: time::Tm) {
                          number_nine];
 
     for row in 0..number_zero.len() {
-        print! ("{}", vertical_border[row]);
+        print! ("|");
         print! (" ");
         print! ("{}", clock_numbers[hour_tens_digit][row]);
         print! (" ");
@@ -180,7 +169,7 @@ fn print_time_horizontally (time: time::Tm) {
         print! (" ");
         print! ("{}", clock_numbers[min_singles_digit][row]);
         print! (" ");
-        print! ("{}", vertical_border[row]);
+        print! ("|");
         println!();
     }
 }
