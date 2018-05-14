@@ -175,7 +175,7 @@ fn print_time_horizontally (time: time::Tm) {
 }
 
 fn print_divider() {
-    println! ("| ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |")
+    print! ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 }
 
 fn get_day (day_number: i32) -> String {
@@ -274,11 +274,13 @@ fn main() {
     let time = time::now();
     print_horizontal_border();
     print_time_horizontally (time);
+    print! ("| ");
     print_divider();
-    print!("| ");
+    println! (" |");
+    print! ("| ");
     print_date (time);
     print!("               ");
     print_am_or_pm (time);
-    println!(" |");
+    println! (" |");
     print_horizontal_border();
 }
