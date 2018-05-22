@@ -273,14 +273,14 @@ fn print_am_or_pm (time: time::Tm) {
 fn main() {
     let time = time::now();
     print_horizontal_border();
-    print_time_horizontally (time);
-    print! ("| ");
-    print_divider();
-    println! (" |");
     print! ("| ");
     print_date (time);
     print!("               ");
     print_am_or_pm (time);
     println! (" |");
+    print! ("| ");
+    print_divider();
+    println! (" |");
+    print_time_horizontally (time);
     print_horizontal_border();
 }
