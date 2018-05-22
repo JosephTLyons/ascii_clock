@@ -280,7 +280,6 @@ fn print_space (mut characters_left: usize) {
     }
 }
 
-// This function returns a number that represents the spaces available to finish out the rest
 fn print_am_or_pm (time: time::Tm) {
     let hour: usize = time.tm_hour as usize;
 
