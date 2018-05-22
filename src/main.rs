@@ -255,7 +255,7 @@ fn get_month (month_number: i32) -> String {
 }
 
 fn print_date (time: time::Tm) {
-    let mut characters_left: usize = 30;
+    let mut spaces_to_print: usize = 30;
     let weekday = get_day (time.tm_wday);
     let month = get_month (time.tm_mon);
     let day_number = time.tm_mday;
@@ -265,18 +265,18 @@ fn print_date (time: time::Tm) {
 
     // The following code prints out the remaining spaces needed to keep the AM/PM code within
     // the clock border
-    characters_left -= weekday.to_string().chars().count()
+    spaces_to_print -= weekday.to_string().chars().count()
                      + month.to_string().chars().count()
                      + day_number.to_string().chars().count()
                      + year.to_string().chars().count();
 
-    print_space (characters_left);
+    print_space (spaces_to_print);
 }
 
-fn print_space (mut characters_left: usize) {
-    while characters_left > 0 {
+fn print_space (mut spaces_to_print: usize) {
+    while spaces_to_print > 0 {
         print! (" ");
-        characters_left -= 1;
+        spaces_to_print -= 1;
     }
 }
 
