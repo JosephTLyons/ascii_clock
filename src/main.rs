@@ -265,7 +265,7 @@ fn print_date (time: time::Tm) {
     // The following code prints out the remaining spaces needed to keep the AM/PM code within
     // the clock border
     let mut spaces_to_print: usize = 30;
-    
+
     spaces_to_print -= weekday.to_string().chars().count()
                      + month.to_string().chars().count()
                      + day_number.to_string().chars().count()
