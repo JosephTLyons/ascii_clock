@@ -1,7 +1,7 @@
 extern crate time;
 
 fn print_horizontal_border() {
-    println!(" --------------------------------------------");
+    println! (" --------------------------------------------");
 }
 
 fn print_time_horizontally (time: time::Tm) {
