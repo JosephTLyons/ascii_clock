@@ -1,7 +1,7 @@
 extern crate time;
 
 fn print_horizontal_border() {
-    println! (" --------------------------------------------");
+    println! (" ----------------------------------------------");
 }
 
 fn print_time_horizontally (time: time::Tm) {
@@ -164,7 +164,9 @@ fn print_time_horizontally (time: time::Tm) {
         print! ("{}", clock_numbers[hour_tens_digit][row]);
         print! (" ");
         print! ("{}", clock_numbers[hour_singles_digit][row]);
+        print! (" ");
         print! ("{}", number_colon[row]);
+        print! (" ");
         print! ("{}", clock_numbers[min_tens_digit][row]);
         print! (" ");
         print! ("{}", clock_numbers[min_singles_digit][row]);
@@ -175,7 +177,7 @@ fn print_time_horizontally (time: time::Tm) {
 }
 
 fn print_divider() {
-    print! ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print! ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 }
 
 fn get_day (day_number: i32) -> String {
@@ -264,7 +266,7 @@ fn print_date (time: time::Tm) {
 
     // The following code prints out the remaining spaces needed to keep the AM/PM code within
     // the clock border
-    let mut spaces_to_print: usize = 30;
+    let mut spaces_to_print: usize = 32;
 
     spaces_to_print -= weekday.to_string().chars().count()
                      + month.to_string().chars().count()
