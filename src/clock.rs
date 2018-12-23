@@ -1,5 +1,3 @@
-extern crate time;
-
 pub fn print_clock() {
     let time = time::now();
     print_horizontal_border();
