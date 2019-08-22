@@ -37,31 +37,15 @@ fn print_date (time: time::Tm) {
 }
 
 fn get_day (day_number: i32) -> String {
-    if day_number == 0 {
-        return "Sunday".to_string();
+    match day_number {
+        0 => "Sunday".to_string(),
+        1 => "Monday".to_string(),
+        2 => "Tuesday".to_string(),
+        3 => "Wednesday".to_string(),
+        4 => "Thursday".to_string(),
+        5 => "Friday".to_string(),
+        _ => "Saturday".to_string()
     }
-
-    else if day_number == 1 {
-        return "Monday".to_string();
-    }
-
-    else if day_number == 2 {
-        return "Tuesday".to_string();
-    }
-
-    else if day_number == 3 {
-        return "Wednesday".to_string();
-    }
-
-    else if day_number == 4 {
-        return "Thursday".to_string();
-    }
-
-    else if day_number == 5 {
-        return "Friday".to_string();
-    }
-
-    "Saturday".to_string()
 }
 
 fn get_month (month_number: i32) -> String {
