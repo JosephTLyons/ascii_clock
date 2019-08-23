@@ -72,9 +72,7 @@ fn print_space(spaces_to_print: usize) {
 }
 
 fn print_am_or_pm(time: time::Tm) {
-    let hour: usize = time.tm_hour as usize;
-
-    if hour > 12 {
+    if time.tm_hour > 12 {
         print!(" AM *PM");
     } else {
         print!("*AM  PM");
