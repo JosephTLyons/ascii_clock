@@ -65,10 +65,9 @@ fn get_month(month_number: i32) -> String {
     }
 }
 
-fn print_space(mut spaces_to_print: usize) {
-    while spaces_to_print > 0 {
+fn print_space(spaces_to_print: usize) {
+    for _ in 0..spaces_to_print {
         print!(" ");
-        spaces_to_print -= 1;
     }
 }
 
