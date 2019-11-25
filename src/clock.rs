@@ -111,7 +111,7 @@ fn print_time_horizontally(time: time::Tm) {
         "000  000",
         "000  000",
         "00000000",
-        "00000000"
+        "00000000",
     ];
 
     let number_one = [
@@ -124,7 +124,7 @@ fn print_time_horizontally(time: time::Tm) {
         "   111  ",
         "   111  ",
         "11111111",
-        "11111111"
+        "11111111",
     ];
 
     let number_two = [
@@ -137,7 +137,7 @@ fn print_time_horizontally(time: time::Tm) {
         "222     ",
         "222     ",
         "22222222",
-        "22222222"
+        "22222222",
     ];
 
     let number_three = [
@@ -150,7 +150,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     333",
         "     333",
         "33333333",
-        "33333333"
+        "33333333",
     ];
 
     let number_four = [
@@ -163,7 +163,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     444",
         "     444",
         "     444",
-        "     444"
+        "     444",
     ];
 
     let number_five = [
@@ -176,7 +176,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     555",
         "     555",
         "55555555",
-        "55555555"
+        "55555555",
     ];
 
     let number_six = [
@@ -189,7 +189,7 @@ fn print_time_horizontally(time: time::Tm) {
         "666  666",
         "666  666",
         "55555555",
-        "55555555"
+        "55555555",
     ];
 
     let number_seven = [
@@ -202,7 +202,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     777",
         "     777",
         "     777",
-        "     777"
+        "     777",
     ];
 
     let number_eight = [
@@ -215,7 +215,7 @@ fn print_time_horizontally(time: time::Tm) {
         "888  888",
         "888  888",
         "88888888",
-        "88888888"
+        "88888888",
     ];
 
     let number_nine = [
@@ -228,7 +228,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     999",
         "     999",
         "     999",
-        "     999"
+        "     999",
     ];
 
     let number_colon = [
