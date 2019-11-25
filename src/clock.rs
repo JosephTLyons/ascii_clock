@@ -254,7 +254,7 @@ fn print_time_horizontally(time: time::Tm) {
         number_six,
         number_seven,
         number_eight,
-        number_nine
+        number_nine,
     ];
 
     for (i, _item) in number_zero.iter().enumerate() {
