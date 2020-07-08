@@ -269,19 +269,13 @@ fn print_time_horizontally(time: time::Tm) {
     ];
 
     for (i, _item) in number_zero.iter().enumerate() {
-        print!("|");
-        print!(" ");
-        print!("{}", clock_numbers[hour_tens_digit][i]);
-        print!(" ");
-        print!("{}", clock_numbers[hour_singles_digit][i]);
-        print!(" ");
-        print!("{}", number_colon[i]);
-        print!(" ");
-        print!("{}", clock_numbers[min_tens_digit][i]);
-        print!(" ");
-        print!("{}", clock_numbers[min_singles_digit][i]);
-        print!(" ");
-        print!("|");
-        println!();
+        println!(
+            "| {} {} {} {} {} |",
+            clock_numbers[hour_tens_digit][i],
+            clock_numbers[hour_singles_digit][i],
+            number_colon[i],
+            clock_numbers[min_tens_digit][i],
+            clock_numbers[min_singles_digit][i]
+        );
     }
 }
