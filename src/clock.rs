@@ -101,7 +101,7 @@ fn print_time_horizontally(time: time::Tm) {
         hour_singles_digit = hour;
     }
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_zero = [
         "00000000",
         "00000000",
@@ -115,7 +115,7 @@ fn print_time_horizontally(time: time::Tm) {
         "00000000",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_one = [
         "111111  ",
         "111111  ",
@@ -129,7 +129,7 @@ fn print_time_horizontally(time: time::Tm) {
         "11111111",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_two = [
         "22222222",
         "22222222",
@@ -143,7 +143,7 @@ fn print_time_horizontally(time: time::Tm) {
         "22222222",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_three = [
         "33333333",
         "33333333",
@@ -157,7 +157,7 @@ fn print_time_horizontally(time: time::Tm) {
         "33333333",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_four = [
         "444  444",
         "444  444",
@@ -171,7 +171,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     444",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_five = [
         "55555555",
         "55555555",
@@ -185,7 +185,7 @@ fn print_time_horizontally(time: time::Tm) {
         "55555555",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_six = [
         "66666666",
         "66666666",
@@ -199,7 +199,7 @@ fn print_time_horizontally(time: time::Tm) {
         "55555555",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_seven = [
         "77777777",
         "77777777",
@@ -213,7 +213,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     777",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_eight = [
         "88888888",
         "88888888",
@@ -227,7 +227,7 @@ fn print_time_horizontally(time: time::Tm) {
         "88888888",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_nine = [
         "99999999",
         "99999999",
@@ -241,7 +241,7 @@ fn print_time_horizontally(time: time::Tm) {
         "     999",
     ];
 
-    #[rustfmt_skip]
+    #[rustfmt::skip]
     let number_colon = [
         "        ",
         "        ",
