@@ -268,7 +268,7 @@ fn print_time_horizontally(time: time::Tm) {
         number_nine,
     ];
 
-    for (i, _item) in number_zero.iter().enumerate() {
+    for (i, _) in number_zero.iter().enumerate() {
         println!(
             "| {} {} {} {} {} |",
             clock_numbers[hour_tens_digit][i],
