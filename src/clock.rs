@@ -28,8 +28,8 @@ fn print_date(time: time::Tm) {
     // the clock border
     let mut spaces_to_print: usize = 32;
 
-    spaces_to_print -= weekday.to_string().chars().count()
-        + month.to_string().chars().count()
+    spaces_to_print -= weekday.chars().count()
+        + month.chars().count()
         + day_number.to_string().chars().count()
         + year.to_string().chars().count();
 
