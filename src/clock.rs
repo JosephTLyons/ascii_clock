@@ -13,7 +13,7 @@ pub fn print_clock() {
 }
 
 fn print_horizontal_border() {
-    println!(" ----------------------------------------------");
+    println!(" {}", "-".repeat(46));
 }
 
 fn print_date(time: time::Tm) {
