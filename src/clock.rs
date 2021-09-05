@@ -33,7 +33,7 @@ fn print_date(time: time::Tm) {
         + day_number.to_string().chars().count()
         + year.to_string().chars().count();
 
-    print_space(spaces_to_print);
+    print!("{}", " ".repeat(spaces_to_print));
 }
 
 fn get_day(day_number: i32) -> String {
@@ -62,12 +62,6 @@ fn get_month(month_number: i32) -> String {
         9 => "October".to_string(),
         10 => "November".to_string(),
         _ => "December".to_string(),
-    }
-}
-
-fn print_space(spaces_to_print: usize) {
-    for _ in 0..spaces_to_print {
-        print!(" ");
     }
 }
 
