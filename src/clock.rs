@@ -1,6 +1,5 @@
 use chrono::{DateTime, Datelike, Local, Timelike};
 mod clock_characters;
-use clock_characters::{get_clock_character, ClockCharacter};
 
 // TODO:
 // Change to be unit-testable
@@ -87,16 +86,16 @@ fn print_divider() {
 
 fn print_time_horizontally(local_datetime: &DateTime<Local>) {
     let clock_numbers = [
-        get_clock_character(ClockCharacter::Zero),
-        get_clock_character(ClockCharacter::One),
-        get_clock_character(ClockCharacter::Two),
-        get_clock_character(ClockCharacter::Three),
-        get_clock_character(ClockCharacter::Four),
-        get_clock_character(ClockCharacter::Five),
-        get_clock_character(ClockCharacter::Six),
-        get_clock_character(ClockCharacter::Seven),
-        get_clock_character(ClockCharacter::Eight),
-        get_clock_character(ClockCharacter::Nine),
+        clock_characters::ZERO,
+        clock_characters::ONE,
+        clock_characters::TWO,
+        clock_characters::THREE,
+        clock_characters::FOUR,
+        clock_characters::FIVE,
+        clock_characters::SIX,
+        clock_characters::SEVEN,
+        clock_characters::EIGHT,
+        clock_characters::NINE,
     ];
 
     let hour: usize = local_datetime.hour12().1 as usize;
@@ -107,12 +106,12 @@ fn print_time_horizontally(local_datetime: &DateTime<Local>) {
     let minute_tens_digit: usize = minute / 10;
     let minute_singles_digit: usize = minute % 10;
 
-    for (i, _) in clock_numbers[0].iter().enumerate() {
+    for (i, _) in clock_characters::ZERO.iter().enumerate() {
         println!(
             "| {} {} {} {} {} |",
             clock_numbers[hour_tens_digit][i],
             clock_numbers[hour_singles_digit][i],
-            get_clock_character(ClockCharacter::Colon)[i],
+            clock_characters::COLON[i],
             clock_numbers[minute_tens_digit][i],
             clock_numbers[minute_singles_digit][i]
         );
