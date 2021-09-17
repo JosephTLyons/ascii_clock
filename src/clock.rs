@@ -34,10 +34,11 @@ fn print_date(local_datetime: &DateTime<Local>) {
 
     // The following code prints out the remaining spaces needed to keep the AM/PM code within
     // the clock border
-    let spaces_to_print = 32 - weekday.chars().count()
-        + month.chars().count()
-        + day_number.to_string().chars().count()
-        + year.to_string().chars().count();
+    let spaces_to_print = 32
+        - (weekday.chars().count()
+            + month.chars().count()
+            + day_number.to_string().chars().count()
+            + year.to_string().chars().count());
 
     print!("{}", " ".repeat(spaces_to_print));
 }
