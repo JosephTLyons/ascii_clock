@@ -85,19 +85,6 @@ fn print_divider() {
 }
 
 fn print_time_horizontally(local_datetime: &DateTime<Local>) {
-    let clock_numbers = [
-        clock_characters::ZERO,
-        clock_characters::ONE,
-        clock_characters::TWO,
-        clock_characters::THREE,
-        clock_characters::FOUR,
-        clock_characters::FIVE,
-        clock_characters::SIX,
-        clock_characters::SEVEN,
-        clock_characters::EIGHT,
-        clock_characters::NINE,
-    ];
-
     let hour: usize = local_datetime.hour12().1 as usize;
     let hour_tens_digit: usize = hour / 10;
     let hour_singles_digit: usize = hour % 10;
@@ -106,14 +93,14 @@ fn print_time_horizontally(local_datetime: &DateTime<Local>) {
     let minute_tens_digit: usize = minute / 10;
     let minute_singles_digit: usize = minute % 10;
 
-    for (i, _) in clock_characters::ZERO.iter().enumerate() {
+    for (i, _) in clock_characters::COLON.iter().enumerate() {
         println!(
             "| {} {} {} {} {} |",
-            clock_numbers[hour_tens_digit][i],
-            clock_numbers[hour_singles_digit][i],
+            clock_characters::CLOCK_NUMBERS[hour_tens_digit][i],
+            clock_characters::CLOCK_NUMBERS[hour_singles_digit][i],
             clock_characters::COLON[i],
-            clock_numbers[minute_tens_digit][i],
-            clock_numbers[minute_singles_digit][i]
+            clock_characters::CLOCK_NUMBERS[minute_tens_digit][i],
+            clock_characters::CLOCK_NUMBERS[minute_singles_digit][i]
         );
     }
 }

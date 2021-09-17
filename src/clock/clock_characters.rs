@@ -1,5 +1,5 @@
 #[rustfmt::skip]
-pub const ZERO: [&str; 10] = [
+const ZERO: [&str; 10] = [
     "00000000",
     "00000000",
     "000  000",
@@ -13,7 +13,7 @@ pub const ZERO: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const ONE: [&str; 10] = [
+const ONE: [&str; 10] = [
     "111111  ",
     "111111  ",
     "   111  ",
@@ -27,7 +27,7 @@ pub const ONE: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const TWO: [&str; 10] = [
+const TWO: [&str; 10] = [
     "22222222",
     "22222222",
     "     222",
@@ -41,7 +41,7 @@ pub const TWO: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const THREE: [&str; 10] = [
+const THREE: [&str; 10] = [
     "33333333",
     "33333333",
     "     333",
@@ -55,7 +55,7 @@ pub const THREE: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const FOUR: [&str; 10] = [
+const FOUR: [&str; 10] = [
     "444  444",
     "444  444",
     "444  444",
@@ -69,7 +69,7 @@ pub const FOUR: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const FIVE: [&str; 10] = [
+const FIVE: [&str; 10] = [
     "55555555",
     "55555555",
     "555     ",
@@ -83,7 +83,7 @@ pub const FIVE: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const SIX: [&str; 10] = [
+const SIX: [&str; 10] = [
     "66666666",
     "66666666",
     "666     ",
@@ -97,7 +97,7 @@ pub const SIX: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const SEVEN: [&str; 10] = [
+const SEVEN: [&str; 10] = [
     "77777777",
     "77777777",
     "     777",
@@ -111,7 +111,7 @@ pub const SEVEN: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const EIGHT: [&str; 10] = [
+const EIGHT: [&str; 10] = [
     "88888888",
     "88888888",
     "888  888",
@@ -125,7 +125,7 @@ pub const EIGHT: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-pub const NINE: [&str; 10] = [
+const NINE: [&str; 10] = [
     "99999999",
     "99999999",
     "999  999",
@@ -137,6 +137,9 @@ pub const NINE: [&str; 10] = [
     "     999",
     "     999",
 ];
+
+pub const CLOCK_NUMBERS: [[&str; 10]; 10] =
+    [ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE];
 
 #[rustfmt::skip]
 pub const COLON: [&str; 10] = [
