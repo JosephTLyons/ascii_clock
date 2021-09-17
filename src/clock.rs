@@ -1,14 +1,17 @@
+use chrono::{DateTime, Datelike, Local, Timelike};
+
 pub fn print_clock() {
-    let time = time::now();
+    let local_datetime = chrono::offset::Local::now();
+
     print_horizontal_border();
     print!("| ");
-    print_date(time);
-    print_am_or_pm(time);
+    print_date(&local_datetime);
+    print_am_or_pm(&local_datetime);
     println!(" |");
     print!("| ");
     print_divider();
     println!(" |");
-    print_time_horizontally(time);
+    print_time_horizontally(&local_datetime);
     print_horizontal_border();
 }
 
@@ -16,19 +19,17 @@ fn print_horizontal_border() {
     println!(" {}", "-".repeat(46));
 }
 
-fn print_date(time: time::Tm) {
-    let weekday = get_day(time.tm_wday);
-    let month = get_month(time.tm_mon);
-    let day_number = time.tm_mday;
-    let year = 1900 + time.tm_year;
+fn print_date(local_datetime: &DateTime<Local>) {
+    let weekday = get_day(local_datetime.weekday() as u8);
+    let month = get_month(local_datetime.month0());
+    let day_number = local_datetime.day();
+    let year = local_datetime.year();
 
     print!("{}: {} {}, {}", weekday, month, day_number, year);
 
     // The following code prints out the remaining spaces needed to keep the AM/PM code within
     // the clock border
-    let mut spaces_to_print: usize = 32;
-
-    spaces_to_print -= weekday.chars().count()
+    let spaces_to_print = 32 - weekday.chars().count()
         + month.chars().count()
         + day_number.to_string().chars().count()
         + year.to_string().chars().count();
@@ -36,19 +37,19 @@ fn print_date(time: time::Tm) {
     print!("{}", " ".repeat(spaces_to_print));
 }
 
-fn get_day(day_number: i32) -> String {
+fn get_day(day_number: u8) -> String {
     match day_number {
-        0 => "Sunday".to_string(),
-        1 => "Monday".to_string(),
-        2 => "Tuesday".to_string(),
-        3 => "Wednesday".to_string(),
-        4 => "Thursday".to_string(),
-        5 => "Friday".to_string(),
+        0 => "Monday".to_string(),
+        1 => "Tuesday".to_string(),
+        2 => "Wednesday".to_string(),
+        3 => "Thursday".to_string(),
+        4 => "Friday".to_string(),
+        5 => "Sunday".to_string(),
         _ => "Saturday".to_string(),
     }
 }
 
-fn get_month(month_number: i32) -> String {
+fn get_month(month_number: u32) -> String {
     match month_number {
         0 => "January".to_string(),
         1 => "February".to_string(),
@@ -65,36 +66,20 @@ fn get_month(month_number: i32) -> String {
     }
 }
 
-fn print_am_or_pm(time: time::Tm) {
-    if time.tm_hour > 12 {
-        print!(" AM *PM");
-    } else {
-        print!("*AM  PM");
+fn print_am_or_pm(local_datetime: &DateTime<Local>) {
+    let is_pm = local_datetime.hour12().0;
+
+    match is_pm {
+        true => print!(" AM *PM"),
+        false => print!("*AM  PM"),
     }
 }
 
 fn print_divider() {
-    print!("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print!("{}", "~".repeat(44));
 }
 
-fn print_time_horizontally(time: time::Tm) {
-    let hour: usize = time.tm_hour as usize;
-    let min: usize = time.tm_min as usize;
-    let mut hour_tens_digit: usize = 0;
-    let hour_singles_digit: usize;
-    let min_tens_digit: usize = min / 10;
-    let min_singles_digit: usize = min % 10;
-
-    if hour == 0 || hour == 12 {
-        hour_tens_digit = 1;
-        hour_singles_digit = 2;
-    } else if hour > 12 {
-        hour_tens_digit = (hour - 12) / 10;
-        hour_singles_digit = (hour - 12) % 10;
-    } else {
-        hour_singles_digit = hour;
-    }
-
+fn print_time_horizontally(local_datetime: &DateTime<Local>) {
     #[rustfmt::skip]
     let number_zero = [
         "00000000",
@@ -262,14 +247,26 @@ fn print_time_horizontally(time: time::Tm) {
         number_nine,
     ];
 
+    let hour: usize = local_datetime.hour12().1 as usize;
+    let hour_tens_digit: usize = hour / 10;
+    let hour_singles_digit: usize = hour % 10;
+
+    let minute: usize = local_datetime.minute() as usize;
+    let minute_tens_digit: usize = minute / 10;
+    let minute_singles_digit: usize = minute % 10;
+
     for (i, _) in number_zero.iter().enumerate() {
         println!(
             "| {} {} {} {} {} |",
             clock_numbers[hour_tens_digit][i],
             clock_numbers[hour_singles_digit][i],
             number_colon[i],
-            clock_numbers[min_tens_digit][i],
-            clock_numbers[min_singles_digit][i]
+            clock_numbers[minute_tens_digit][i],
+            clock_numbers[minute_singles_digit][i]
         );
     }
 }
+
+// TODO:
+// Change to be unit-testable
+// Move these to their own file (a structure of some sort?)
