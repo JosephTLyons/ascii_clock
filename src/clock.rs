@@ -6,16 +6,22 @@ mod clock_characters;
 
 pub fn print_clock() {
     let local_datetime: DateTime<Local> = chrono::offset::Local::now();
+
     let border_length: usize = 46;
+    let border: String = "-".repeat(border_length);
+    let divider: String = "~".repeat(border_length - 2);
+
     let date: String = get_date(&local_datetime);
     let am_or_pm: String = get_am_or_pm(&local_datetime);
-    let space_filler: usize = border_length - date.len() - am_or_pm.len() - 2;
 
-    println!(" {} ", "-".repeat(border_length));
-    println!("| {}{}{} |", date, " ".repeat(space_filler), am_or_pm);
-    println!("| {} |", "~".repeat(border_length - 2));
+    let space_filler_length: usize = border_length - date.len() - am_or_pm.len() - 2;
+    let space_filler: String = " ".repeat(space_filler_length);
+
+    println!(" {} ", border);
+    println!("| {}{}{} |", date, space_filler, am_or_pm);
+    println!("| {} |", divider);
     print_time_horizontally(&local_datetime);
-    println!(" {} ", "-".repeat(border_length));
+    println!(" {} ", border);
 }
 
 fn get_date(local_datetime: &DateTime<Local>) -> String {
@@ -24,12 +30,6 @@ fn get_date(local_datetime: &DateTime<Local>) -> String {
     let day_number: u32 = local_datetime.day();
     let year: i32 = local_datetime.year();
     format!("{}: {} {}, {}", day_name, month_name, day_number, year)
-}
-
-fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
-    let is_pm: bool = local_datetime.hour12().0;
-    let (a, b): (&str, &str) = if is_pm { (" ", "*") } else { ("*", " ") };
-    format!("{}AM {}PM", a, b)
 }
 
 fn get_day_name(day_number: u8) -> &'static str {
@@ -59,6 +59,12 @@ fn get_month_name(month_number: u8) -> &'static str {
         10 => "November",
         _ => "December",
     }
+}
+
+fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
+    let is_pm: bool = local_datetime.hour12().0;
+    let (a, b): (&str, &str) = if is_pm { (" ", "*") } else { ("*", " ") };
+    format!("{}AM {}PM", a, b)
 }
 
 fn print_time_horizontally(local_datetime: &DateTime<Local>) {
