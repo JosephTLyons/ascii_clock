@@ -5,41 +5,31 @@ mod clock_characters;
 // Change to be unit-testable
 
 pub fn print_clock() {
-    let local_datetime = chrono::offset::Local::now();
+    let local_datetime: DateTime<Local> = chrono::offset::Local::now();
+    let border_length: usize = 46;
+    let date: String = get_date(&local_datetime);
+    let am_or_pm: String = get_am_or_pm(&local_datetime);
+    let space_filler: usize = border_length - date.len() - am_or_pm.len() - 2;
 
-    print_horizontal_border();
-    print!("| ");
-    print_date(&local_datetime);
-    print_am_or_pm(&local_datetime);
-    println!(" |");
-    print!("| ");
-    print_divider();
-    println!(" |");
+    println!(" {} ", "-".repeat(border_length));
+    println!("| {}{}{} |", date, " ".repeat(space_filler), am_or_pm);
+    println!("| {} |", "~".repeat(border_length - 2));
     print_time_horizontally(&local_datetime);
-    print_horizontal_border();
+    println!(" {} ", "-".repeat(border_length));
 }
 
-fn print_horizontal_border() {
-    println!(" {}", "-".repeat(46));
+fn get_date(local_datetime: &DateTime<Local>) -> String {
+    let weekday: String = get_day(local_datetime.weekday() as u8);
+    let month: String = get_month(local_datetime.month0());
+    let day_number: u32 = local_datetime.day();
+    let year: i32 = local_datetime.year();
+    format!("{}: {} {}, {}", weekday, month, day_number, year)
 }
 
-fn print_date(local_datetime: &DateTime<Local>) {
-    let weekday = get_day(local_datetime.weekday() as u8);
-    let month = get_month(local_datetime.month0());
-    let day_number = local_datetime.day();
-    let year = local_datetime.year();
-
-    print!("{}: {} {}, {}", weekday, month, day_number, year);
-
-    // The following code prints out the remaining spaces needed to keep the AM/PM code within
-    // the clock border
-    let spaces_to_print = 32
-        - (weekday.chars().count()
-            + month.chars().count()
-            + day_number.to_string().chars().count()
-            + year.to_string().chars().count());
-
-    print!("{}", " ".repeat(spaces_to_print));
+fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
+    let is_pm: bool = local_datetime.hour12().0;
+    let (a, b): (&str, &str) = if is_pm { (" ", "*") } else { ("*", " ") };
+    format!("{}AM {}PM", a, b)
 }
 
 fn get_day(day_number: u8) -> String {
@@ -69,19 +59,6 @@ fn get_month(month_number: u32) -> String {
         10 => "November".to_string(),
         _ => "December".to_string(),
     }
-}
-
-fn print_am_or_pm(local_datetime: &DateTime<Local>) {
-    let is_pm = local_datetime.hour12().0;
-
-    match is_pm {
-        true => print!(" AM *PM"),
-        false => print!("*AM  PM"),
-    }
-}
-
-fn print_divider() {
-    print!("{}", "~".repeat(44));
 }
 
 fn print_time_horizontally(local_datetime: &DateTime<Local>) {
