@@ -1,4 +1,9 @@
 use chrono::{DateTime, Datelike, Local, Timelike};
+mod clock_characters;
+use clock_characters::{get_clock_character, ClockCharacter};
+
+// TODO:
+// Change to be unit-testable
 
 pub fn print_clock() {
     let local_datetime = chrono::offset::Local::now();
@@ -80,171 +85,17 @@ fn print_divider() {
 }
 
 fn print_time_horizontally(local_datetime: &DateTime<Local>) {
-    #[rustfmt::skip]
-    let number_zero = [
-        "00000000",
-        "00000000",
-        "000  000",
-        "000  000",
-        "000  000",
-        "000  000",
-        "000  000",
-        "000  000",
-        "00000000",
-        "00000000",
-    ];
-
-    #[rustfmt::skip]
-    let number_one = [
-        "111111  ",
-        "111111  ",
-        "   111  ",
-        "   111  ",
-        "   111  ",
-        "   111  ",
-        "   111  ",
-        "   111  ",
-        "11111111",
-        "11111111",
-    ];
-
-    #[rustfmt::skip]
-    let number_two = [
-        "22222222",
-        "22222222",
-        "     222",
-        "     222",
-        "22222222",
-        "22222222",
-        "222     ",
-        "222     ",
-        "22222222",
-        "22222222",
-    ];
-
-    #[rustfmt::skip]
-    let number_three = [
-        "33333333",
-        "33333333",
-        "     333",
-        "     333",
-        "33333333",
-        "33333333",
-        "     333",
-        "     333",
-        "33333333",
-        "33333333",
-    ];
-
-    #[rustfmt::skip]
-    let number_four = [
-        "444  444",
-        "444  444",
-        "444  444",
-        "444  444",
-        "44444444",
-        "44444444",
-        "     444",
-        "     444",
-        "     444",
-        "     444",
-    ];
-
-    #[rustfmt::skip]
-    let number_five = [
-        "55555555",
-        "55555555",
-        "555     ",
-        "555     ",
-        "55555555",
-        "55555555",
-        "     555",
-        "     555",
-        "55555555",
-        "55555555",
-    ];
-
-    #[rustfmt::skip]
-    let number_six = [
-        "66666666",
-        "66666666",
-        "666     ",
-        "666     ",
-        "66666666",
-        "66666666",
-        "666  666",
-        "666  666",
-        "55555555",
-        "55555555",
-    ];
-
-    #[rustfmt::skip]
-    let number_seven = [
-        "77777777",
-        "77777777",
-        "     777",
-        "     777",
-        "     777",
-        "     777",
-        "     777",
-        "     777",
-        "     777",
-        "     777",
-    ];
-
-    #[rustfmt::skip]
-    let number_eight = [
-        "88888888",
-        "88888888",
-        "888  888",
-        "888  888",
-        "88888888",
-        "88888888",
-        "888  888",
-        "888  888",
-        "88888888",
-        "88888888",
-    ];
-
-    #[rustfmt::skip]
-    let number_nine = [
-        "99999999",
-        "99999999",
-        "999  999",
-        "999  999",
-        "99999999",
-        "99999999",
-        "     999",
-        "     999",
-        "     999",
-        "     999",
-    ];
-
-    #[rustfmt::skip]
-    let number_colon = [
-        "        ",
-        "        ",
-        "   ::   ",
-        "   ::   ",
-        "        ",
-        "        ",
-        "   ::   ",
-        "   ::   ",
-        "        ",
-        "        "
-    ];
-
     let clock_numbers = [
-        number_zero,
-        number_one,
-        number_two,
-        number_three,
-        number_four,
-        number_five,
-        number_six,
-        number_seven,
-        number_eight,
-        number_nine,
+        get_clock_character(ClockCharacter::Zero),
+        get_clock_character(ClockCharacter::One),
+        get_clock_character(ClockCharacter::Two),
+        get_clock_character(ClockCharacter::Three),
+        get_clock_character(ClockCharacter::Four),
+        get_clock_character(ClockCharacter::Five),
+        get_clock_character(ClockCharacter::Six),
+        get_clock_character(ClockCharacter::Seven),
+        get_clock_character(ClockCharacter::Eight),
+        get_clock_character(ClockCharacter::Nine),
     ];
 
     let hour: usize = local_datetime.hour12().1 as usize;
@@ -255,18 +106,14 @@ fn print_time_horizontally(local_datetime: &DateTime<Local>) {
     let minute_tens_digit: usize = minute / 10;
     let minute_singles_digit: usize = minute % 10;
 
-    for (i, _) in number_zero.iter().enumerate() {
+    for (i, _) in clock_numbers[0].iter().enumerate() {
         println!(
             "| {} {} {} {} {} |",
             clock_numbers[hour_tens_digit][i],
             clock_numbers[hour_singles_digit][i],
-            number_colon[i],
+            get_clock_character(ClockCharacter::Colon)[i],
             clock_numbers[minute_tens_digit][i],
             clock_numbers[minute_singles_digit][i]
         );
     }
 }
-
-// TODO:
-// Change to be unit-testable
-// Move these to their own file (a structure of some sort?)
