@@ -19,8 +19,8 @@ pub fn print_clock() {
 }
 
 fn get_date(local_datetime: &DateTime<Local>) -> String {
-    let weekday: String = get_day(local_datetime.weekday() as u8);
-    let month: String = get_month(local_datetime.month0());
+    let weekday: &str = get_day(local_datetime.weekday() as u8);
+    let month: &str = get_month(local_datetime.month0());
     let day_number: u32 = local_datetime.day();
     let year: i32 = local_datetime.year();
     format!("{}: {} {}, {}", weekday, month, day_number, year)
@@ -32,32 +32,32 @@ fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
     format!("{}AM {}PM", a, b)
 }
 
-fn get_day(day_number: u8) -> String {
+fn get_day(day_number: u8) -> &'static str {
     match day_number {
-        0 => "Monday".to_string(),
-        1 => "Tuesday".to_string(),
-        2 => "Wednesday".to_string(),
-        3 => "Thursday".to_string(),
-        4 => "Friday".to_string(),
-        5 => "Sunday".to_string(),
-        _ => "Saturday".to_string(),
+        0 => "Monday",
+        1 => "Tuesday",
+        2 => "Wednesday",
+        3 => "Thursday",
+        4 => "Friday",
+        5 => "Sunday",
+        _ => "Saturday",
     }
 }
 
-fn get_month(month_number: u32) -> String {
+fn get_month(month_number: u32) -> &'static str {
     match month_number {
-        0 => "January".to_string(),
-        1 => "February".to_string(),
-        2 => "March".to_string(),
-        3 => "April".to_string(),
-        4 => "May".to_string(),
-        5 => "June".to_string(),
-        6 => "July".to_string(),
-        7 => "August".to_string(),
-        8 => "September".to_string(),
-        9 => "October".to_string(),
-        10 => "November".to_string(),
-        _ => "December".to_string(),
+        0 => "January",
+        1 => "February",
+        2 => "March",
+        3 => "April",
+        4 => "May",
+        5 => "June",
+        6 => "July",
+        7 => "August",
+        8 => "September",
+        9 => "October",
+        10 => "November",
+        _ => "December",
     }
 }
 
