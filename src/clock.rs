@@ -19,11 +19,11 @@ pub fn print_clock() {
 }
 
 fn get_date(local_datetime: &DateTime<Local>) -> String {
-    let weekday: &str = get_day(local_datetime.weekday() as u8);
-    let month: &str = get_month(local_datetime.month0() as u8);
+    let day_name: &str = get_day_name(local_datetime.weekday() as u8);
+    let month_name: &str = get_month_name(local_datetime.month0() as u8);
     let day_number: u32 = local_datetime.day();
     let year: i32 = local_datetime.year();
-    format!("{}: {} {}, {}", weekday, month, day_number, year)
+    format!("{}: {} {}, {}", day_name, month_name, day_number, year)
 }
 
 fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
@@ -32,7 +32,7 @@ fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
     format!("{}AM {}PM", a, b)
 }
 
-fn get_day(day_number: u8) -> &'static str {
+fn get_day_name(day_number: u8) -> &'static str {
     match day_number {
         0 => "Monday",
         1 => "Tuesday",
@@ -44,7 +44,7 @@ fn get_day(day_number: u8) -> &'static str {
     }
 }
 
-fn get_month(month_number: u8) -> &'static str {
+fn get_month_name(month_number: u8) -> &'static str {
     match month_number {
         0 => "January",
         1 => "February",
