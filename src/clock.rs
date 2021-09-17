@@ -20,7 +20,7 @@ pub fn print_clock() {
 
 fn get_date(local_datetime: &DateTime<Local>) -> String {
     let weekday: &str = get_day(local_datetime.weekday() as u8);
-    let month: &str = get_month(local_datetime.month0());
+    let month: &str = get_month(local_datetime.month0() as u8);
     let day_number: u32 = local_datetime.day();
     let year: i32 = local_datetime.year();
     format!("{}: {} {}, {}", weekday, month, day_number, year)
@@ -44,7 +44,7 @@ fn get_day(day_number: u8) -> &'static str {
     }
 }
 
-fn get_month(month_number: u32) -> &'static str {
+fn get_month(month_number: u8) -> &'static str {
     match month_number {
         0 => "January",
         1 => "February",
