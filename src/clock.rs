@@ -39,8 +39,8 @@ fn get_day_name(day_number: u8) -> &'static str {
         2 => "Wednesday",
         3 => "Thursday",
         4 => "Friday",
-        5 => "Sunday",
-        _ => "Saturday",
+        5 => "Saturday",
+        _ => "Sunday",
     }
 }
 
