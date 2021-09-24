@@ -1,4 +1,4 @@
-use chrono::{DateTime, Datelike, Local, Timelike};
+use chrono::{DateTime, Datelike, Local, Timelike, Weekday};
 mod clock_characters;
 
 // TODO:
@@ -25,22 +25,22 @@ pub fn print_clock() {
 }
 
 fn get_date(local_datetime: &DateTime<Local>) -> String {
-    let day_name: &str = get_day_name(local_datetime.weekday() as u8);
+    let day_name: &str = get_day_name(local_datetime.weekday());
     let month_name: &str = get_month_name(local_datetime.month0() as u8);
     let day_number: u32 = local_datetime.day();
     let year: i32 = local_datetime.year();
     format!("{}: {} {}, {}", day_name, month_name, day_number, year)
 }
 
-fn get_day_name(day_number: u8) -> &'static str {
-    match day_number {
-        0 => "Monday",
-        1 => "Tuesday",
-        2 => "Wednesday",
-        3 => "Thursday",
-        4 => "Friday",
-        5 => "Saturday",
-        _ => "Sunday",
+fn get_day_name(weekday: Weekday) -> &'static str {
+    match weekday {
+        Weekday::Mon => "Monday",
+        Weekday::Tue => "Tuesday",
+        Weekday::Wed => "Wednesday",
+        Weekday::Thu => "Thursday",
+        Weekday::Fri => "Friday",
+        Weekday::Sat => "Saturday",
+        Weekday::Sun => "Sunday",
     }
 }
 
