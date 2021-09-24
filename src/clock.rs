@@ -57,7 +57,8 @@ fn get_month_name(month_number: u8) -> &'static str {
         8 => "September",
         9 => "October",
         10 => "November",
-        _ => "December",
+        11 => "December",
+        _ => unreachable!(),
     }
 }
 
