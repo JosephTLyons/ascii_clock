@@ -20,7 +20,7 @@ pub fn print_clock() {
     println!(" {} ", border);
     println!("| {}{}{} |", date, space_filler, am_or_pm);
     println!("| {} |", divider);
-    print_time_horizontally(&local_datetime);
+    print_time(&local_datetime);
     println!(" {} ", border);
 }
 
@@ -68,7 +68,7 @@ fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
     format!("{}AM {}PM", a, b)
 }
 
-fn print_time_horizontally(local_datetime: &DateTime<Local>) {
+fn print_time(local_datetime: &DateTime<Local>) {
     let hour: usize = local_datetime.hour12().1 as usize;
     let hour_tens_digit: usize = hour / 10;
     let hour_singles_digit: usize = hour % 10;
