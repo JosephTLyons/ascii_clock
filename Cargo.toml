@@ -2,7 +2,7 @@
 name = "ascii_clock"
 version = "0.3.0"
 authors = ["Joseph Lyons <JosephTLyons@users.noreply.github.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 chrono = "0.4.19"
