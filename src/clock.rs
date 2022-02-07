@@ -17,10 +17,18 @@ pub fn print_clock() {
     let space_filler_length: usize = border_length - date.len() - am_or_pm.len() - 2;
     let space_filler: String = " ".repeat(space_filler_length);
 
+    let vertical_border_symbol = '|';
+
     println!(" {} ", border);
-    println!("| {}{}{} |", date, space_filler, am_or_pm);
-    println!("| {} |", divider);
-    print_time(&local_datetime);
+    println!(
+        "{} {}{}{} {}",
+        vertical_border_symbol, date, space_filler, am_or_pm, vertical_border_symbol
+    );
+    println!(
+        "{} {} {}",
+        vertical_border_symbol, divider, vertical_border_symbol
+    );
+    print_time(&local_datetime, Some(vertical_border_symbol));
     println!(" {} ", border);
 }
 
@@ -68,7 +76,7 @@ fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
     format!("{}AM {}PM", a, b)
 }
 
-fn print_time(local_datetime: &DateTime<Local>) {
+fn print_time(local_datetime: &DateTime<Local>, border_option: Option<char>) {
     let hour: usize = local_datetime.hour12().1 as usize;
     let hour_tens_digit: usize = hour / 10;
     let hour_singles_digit: usize = hour % 10;
@@ -77,14 +85,21 @@ fn print_time(local_datetime: &DateTime<Local>) {
     let minute_tens_digit: usize = minute / 10;
     let minute_singles_digit: usize = minute % 10;
 
+    let (left_border, right_border) = match border_option {
+        Some(border_symbol) => (format!("{} ", border_symbol), format!(" {}", border_symbol)),
+        None => ("".to_string(), "".to_string()),
+    };
+
     for (i, _) in clock_characters::COLON.iter().enumerate() {
         println!(
-            "| {} {} {} {} {} |",
+            "{}{} {} {} {} {}{}",
+            left_border,
             clock_characters::CLOCK_NUMBERS[hour_tens_digit][i],
             clock_characters::CLOCK_NUMBERS[hour_singles_digit][i],
             clock_characters::COLON[i],
             clock_characters::CLOCK_NUMBERS[minute_tens_digit][i],
-            clock_characters::CLOCK_NUMBERS[minute_singles_digit][i]
+            clock_characters::CLOCK_NUMBERS[minute_singles_digit][i],
+            right_border
         );
     }
 }
