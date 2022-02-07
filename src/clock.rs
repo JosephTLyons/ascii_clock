@@ -17,19 +17,13 @@ pub fn print_clock() {
     let space_filler_length: usize = border_length - date.len() - am_or_pm.len() - 2;
     let space_filler: String = " ".repeat(space_filler_length);
 
-    let vertical_border_symbol = '|';
+    let vertical_border_symbol: char = '|';
 
-    println!(" {} ", border);
-    println!(
-        "{} {}{}{} {}",
-        vertical_border_symbol, date, space_filler, am_or_pm, vertical_border_symbol
-    );
-    println!(
-        "{} {} {}",
-        vertical_border_symbol, divider, vertical_border_symbol
-    );
+    println!(" {border} ");
+    println!("{vertical_border_symbol} {date}{space_filler}{am_or_pm} {vertical_border_symbol}");
+    println!("{vertical_border_symbol} {divider} {vertical_border_symbol}",);
     print_time(&local_datetime, Some(vertical_border_symbol));
-    println!(" {} ", border);
+    println!(" {border} ");
 }
 
 fn get_date(local_datetime: &DateTime<Local>) -> String {
@@ -37,7 +31,7 @@ fn get_date(local_datetime: &DateTime<Local>) -> String {
     let month_name: &str = get_month_name(local_datetime.month0() as u8);
     let day_number: u32 = local_datetime.day();
     let year: i32 = local_datetime.year();
-    format!("{}: {} {}, {}", day_name, month_name, day_number, year)
+    format!("{day_name}: {month_name} {day_number}, {year}")
 }
 
 fn get_day_name(weekday: Weekday) -> &'static str {
@@ -73,7 +67,7 @@ fn get_month_name(month_number: u8) -> &'static str {
 fn get_am_or_pm(local_datetime: &DateTime<Local>) -> String {
     let is_pm: bool = local_datetime.hour12().0;
     let (a, b): (&str, &str) = if is_pm { (" ", "*") } else { ("*", " ") };
-    format!("{}AM {}PM", a, b)
+    format!("{a}AM {b}PM")
 }
 
 fn print_time(local_datetime: &DateTime<Local>, border_option: Option<char>) {
@@ -86,7 +80,7 @@ fn print_time(local_datetime: &DateTime<Local>, border_option: Option<char>) {
     let minute_singles_digit: usize = minute % 10;
 
     let (left_border, right_border) = match border_option {
-        Some(border_symbol) => (format!("{} ", border_symbol), format!(" {}", border_symbol)),
+        Some(border_symbol) => (format!("{border_symbol} "), format!(" {border_symbol}")),
         None => ("".to_string(), "".to_string()),
     };
 
