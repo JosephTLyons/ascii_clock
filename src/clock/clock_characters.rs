@@ -1,5 +1,7 @@
+type ClockCharacter<'a> = [&'a str; 10];
+
 #[rustfmt::skip]
-const ZERO: [&str; 10] = [
+const ZERO: ClockCharacter = [
     "00000000",
     "00000000",
     "000  000",
@@ -13,7 +15,7 @@ const ZERO: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const ONE: [&str; 10] = [
+const ONE: ClockCharacter = [
     "111111  ",
     "111111  ",
     "   111  ",
@@ -27,7 +29,7 @@ const ONE: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const TWO: [&str; 10] = [
+const TWO: ClockCharacter = [
     "22222222",
     "22222222",
     "     222",
@@ -41,7 +43,7 @@ const TWO: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const THREE: [&str; 10] = [
+const THREE: ClockCharacter = [
     "33333333",
     "33333333",
     "     333",
@@ -55,7 +57,7 @@ const THREE: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const FOUR: [&str; 10] = [
+const FOUR: ClockCharacter = [
     "444  444",
     "444  444",
     "444  444",
@@ -69,7 +71,7 @@ const FOUR: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const FIVE: [&str; 10] = [
+const FIVE: ClockCharacter = [
     "55555555",
     "55555555",
     "555     ",
@@ -83,7 +85,7 @@ const FIVE: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const SIX: [&str; 10] = [
+const SIX: ClockCharacter = [
     "66666666",
     "66666666",
     "666     ",
@@ -97,7 +99,7 @@ const SIX: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const SEVEN: [&str; 10] = [
+const SEVEN: ClockCharacter = [
     "77777777",
     "77777777",
     "     777",
@@ -111,7 +113,7 @@ const SEVEN: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const EIGHT: [&str; 10] = [
+const EIGHT: ClockCharacter = [
     "88888888",
     "88888888",
     "888  888",
@@ -125,7 +127,7 @@ const EIGHT: [&str; 10] = [
 ];
 
 #[rustfmt::skip]
-const NINE: [&str; 10] = [
+const NINE: ClockCharacter = [
     "99999999",
     "99999999",
     "999  999",
@@ -138,11 +140,11 @@ const NINE: [&str; 10] = [
     "     999",
 ];
 
-pub const CLOCK_NUMBERS: [[&str; 10]; 10] =
+pub const CLOCK_NUMBERS: [ClockCharacter; 10] =
     [ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE];
 
 #[rustfmt::skip]
-pub const COLON: [&str; 10] = [
+pub const COLON: ClockCharacter = [
     "        ",
     "        ",
     "   ::   ",
